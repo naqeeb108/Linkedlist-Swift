@@ -4,7 +4,7 @@ public class LinkedList<T: Comparable> {
     
     private var head: Node<T>?
     private var tail: Node<T>?
-    private var size = 0
+    private var count = 0
     
     private var isEmpty: Bool {
         head == nil
@@ -23,7 +23,7 @@ public class LinkedList<T: Comparable> {
             tail?.next = node
             tail = node
         }
-        size += 1
+        count += 1
     }
     
     /// This function will add value to the start of the linked list
@@ -37,7 +37,7 @@ public class LinkedList<T: Comparable> {
             node.next = head
             head = node
         }
-        size += 1
+        count += 1
     }
     
     /// This func will add node after a specific node
@@ -51,7 +51,7 @@ public class LinkedList<T: Comparable> {
             if current!.value == node {
                 newNode.next = current?.next
                 current?.next = newNode
-                size += 1
+                count += 1
                 return
             }
             current = current?.next
@@ -83,7 +83,7 @@ public class LinkedList<T: Comparable> {
         if let previous = previous {
             newNode.next = previous.next
             previous.next = newNode
-            size += 1
+            count += 1
         }
     }
     
@@ -136,13 +136,13 @@ public class LinkedList<T: Comparable> {
             //list has only one Node
             head = nil
             tail = nil
-            size -= 1
+            count -= 1
             return
         }
         let nextNode = head?.next
         head?.next = nil
         head = nextNode
-        size -= 1
+        count -= 1
     }
     
     /// This function will remove last element is the list
@@ -154,7 +154,7 @@ public class LinkedList<T: Comparable> {
             //list has only one Node
             head = nil
             tail = nil
-            size -= 1
+            count -= 1
             return
         }
         
@@ -164,7 +164,7 @@ public class LinkedList<T: Comparable> {
             if current!.next == tail {
                 tail = current
                 tail?.next = nil
-                size -= 1
+                count -= 1
                 return
             }
             current = current?.next
@@ -190,12 +190,12 @@ public class LinkedList<T: Comparable> {
         if let previous = previous {
             previous.next = current?.next
             current?.next = nil
-            size -= 1
+            count -= 1
         }
     }
     
     public func size() -> Int {
-        return size
+        return count
     }
 }
 
@@ -222,11 +222,11 @@ list.addFirst(value: 5)
 list.printLinkedList()
 print("---------------")
 list.insertAt(2, value: 15)
-print("size is \(list.size())")
+print("count is \(list.size())")
 //list.removeLast()
 list.printLinkedList()
 list.removeAt(2)
 print("---------------")
 list.printLinkedList()
-print("size is \(list.size())")
+print("count is \(list.size())")
 print("done")
