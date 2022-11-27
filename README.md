@@ -1,6 +1,6 @@
 # Linkedlist-Swift
 
-In this project i implemented basic linked list operation using swift.
+In this project i implemented basic linked list operations using swift.
   
  - Insertion Operations
   ```
