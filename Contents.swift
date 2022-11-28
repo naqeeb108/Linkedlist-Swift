@@ -197,6 +197,26 @@ public class LinkedList<T: Comparable> {
     public func size() -> Int {
         return count
     }
+    
+    public func reverse() {
+        
+        if isEmpty { return }
+        
+        var previous = head
+        var current = head?.next
+        
+        tail = head
+        tail?.next = nil
+        
+        while current != nil {
+            var next = current?.next
+            current?.next = previous
+            
+            previous = current
+            current = next
+        }
+        head = previous
+    }
 }
 
 extension LinkedList {
@@ -229,4 +249,7 @@ list.removeAt(2)
 print("---------------")
 list.printLinkedList()
 print("count is \(list.size())")
+print("-------Reverse--------")
+list.reverse()
+list.printLinkedList()
 print("done")
