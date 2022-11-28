@@ -25,6 +25,11 @@ In this project i implemented basic linked list operations using swift.
     contains
   ```
 
+ - Coding Challenges
+  ```
+    Reverse Linkedlist
+  ```
+  
 ## Contact
 
 Follow on Twitter - [Naqeeb Ahmed](https://twitter.com/naqeeb108)
