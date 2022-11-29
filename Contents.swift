@@ -217,6 +217,29 @@ public class LinkedList<T: Comparable> {
         }
         head = previous
     }
+    
+    public func kthNodeFromEnd(node: Int) {
+        
+        if isEmpty { return }
+        
+        if node < 0 || node > list.count {
+            print("invalid input")
+            return
+        }
+            
+        var previous = head
+        var current = head
+       
+        for _ in 0..<node - 1 {
+            current = current?.next
+        }
+        
+        while current!.next != nil {
+            previous = previous?.next
+            current = current?.next
+        }
+        print(previous!.value)
+    }
 }
 
 extension LinkedList {
@@ -238,18 +261,10 @@ extension LinkedList {
 
 let list = LinkedList<Int>()
 list.addLast(value: 10)
-list.addFirst(value: 5)
+list.addLast(value: 12)
+list.addLast(value: 15)
+list.addLast(value: 20)
 list.printLinkedList()
 print("---------------")
-list.insertAt(2, value: 15)
-print("count is \(list.size())")
-//list.removeLast()
-list.printLinkedList()
-list.removeAt(2)
-print("---------------")
-list.printLinkedList()
-print("count is \(list.size())")
-print("-------Reverse--------")
-list.reverse()
-list.printLinkedList()
+list.kthNodeFromEnd(node: 3)
 print("done")
