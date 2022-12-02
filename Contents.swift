@@ -218,22 +218,27 @@ public class LinkedList<T: Comparable> {
         head = previous
     }
     
-    public func kthNodeFromEnd(position: Int) {
-       
-        if isEmpty || position < 0 || position > list.count { return }
+    public func kthNodeFromEnd(node: Int) {
+        
+        if isEmpty { return }
+        
+        if node < 0 || node > list.count {
+            print("invalid input")
+            return
+        }
             
         var previous = head
         var current = head
        
-        for _ in 0..<position - 1 {
+        for _ in 0..<node - 1 {
             current = current?.next
         }
         
-        while let next = current?.next {
+        while current!.next != nil {
             previous = previous?.next
-            current = next
+            current = current?.next
         }
-        print(previous?.value ?? Optional.none)
+        print(previous!.value)
     }
 }
 
@@ -261,5 +266,5 @@ list.addLast(value: 15)
 list.addLast(value: 20)
 list.printLinkedList()
 print("---------------")
-list.kthNodeFromEnd(position: 2)
+list.kthNodeFromEnd(node: 3)
 print("done")
