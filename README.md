@@ -1,5 +1,7 @@
 # Linkedlist-Swift
 
+A linked list is a linear and second most commonly data structure after Arrays, in which the elements are not stored at contiguous memory locations. A linked list consists of nodes where each node contains a data field and a reference to the next node in the list.
+
 In this project i implemented basic linked list operations using swift.
   
  - Insertion Operations
